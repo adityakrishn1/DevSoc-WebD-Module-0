@@ -1,0 +1,83 @@
+
+body {
+    background-image: url('bg.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin: 0;
+    padding: 0;
+}
+
+.banner {
+    margin-top: -50px;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+}
+
+.product {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0;
+    z-index: 2;
+    width: 500px;
+    height: 100%;
+    transition: 0.7s;
+}
+
+.product .soda {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.soda {
+    --left: 0px;
+
+    background:
+        var(--url) var(--left) 0,
+        url(soda.png) 0 0;
+
+    background-size: auto 100%;
+    background-repeat: repeat-x;
+    width: 220px;
+    aspect-ratio: 2 / 4.08;
+    background-blend-mode: multiply;
+    transition: background-position 0.8s ease, opacity 0.8s ease;
+
+    mask-image: url(soda.png);
+    mask-size: auto 100%;
+    mask-repeat: no-repeat;
+    mask-position: center;
+}
+
+
+.product:hover .soda:nth-child(2) {
+    opacity: 1;
+    --left: -280px;
+}
+
+.product:hover .soda:nth-child(1) {
+    opacity: 0;
+    --left: -280px;
+}
+
+.soda:nth-child(2) {
+    opacity: 0;
+}
+
+.product:hover {
+    bottom: 30px;
+}
+
+.product:hover .soda:nth-child(2) {
+    opacity: 1;
+    --left: 500px;
+}
+
+.product:hover .soda:nth-child(1) {
+    opacity: 0;
+    --left: 500px;
+}
